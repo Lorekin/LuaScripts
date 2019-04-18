@@ -110,21 +110,21 @@ function AutoBuyItems.OnUpdate()
 	if not Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and not Menu.IsEnabled(AutoBuyItems.AutoBuySentry) and not Menu.IsEnabled(AutoBuyItems.AutoBuyDusts) then return end
 	AutoBuyItems.Init()
 	AutoBuyItems.Gold()
-	if Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and Time > 9.98 or Time < 0.03 and gold < 150 and not CheckTome and NPC.GetCurrentLevel(myHero) ~= 25 and GameRules.GetGameTime() > 150 then
+	if Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and Time > 9.98 or Time < 0.03 and gold < 150 and not CheckTome and NPC.GetCurrentLevel(myHero) ~= 25 and GameRules.GetGameTime() > 240 then
 		CheckTome = true
 	end
 	if Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and CheckTome and gold >= 152 and NPC.GetCurrentLevel(myHero) ~= 25 then
 		AutoBuyItems.Book()
 		CheckTome = false
 	end 
-	if Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and Time > 9.98 or Time < 0.03 and gold >= 150 and NPC.GetCurrentLevel(myHero) ~= 25 and GameRules.GetGameTime() > 150 then
+	if Menu.IsEnabled(AutoBuyItems.AutoBuyBook) and Time > 9.98 or Time < 0.03 and gold >= 150 and NPC.GetCurrentLevel(myHero) ~= 25 and GameRules.GetGameTime() > 240 then
 		AutoBuyItems.Book()
 	end
-	if Menu.IsEnabled(AutoBuyItems.AutoBuySentry) and itemCount.SentryCount < Menu.GetValue(AutoBuyItems.SliderForSentry) and GameRules.GetGameTime() > 150 and GameRules.GetGameTime() >= AutoBuyItems.DelaySentry and gold >= 100 then
+	if Menu.IsEnabled(AutoBuyItems.AutoBuySentry) and itemCount.SentryCount < Menu.GetValue(AutoBuyItems.SliderForSentry) and GameRules.GetGameTime() > 210 and GameRules.GetGameTime() >= AutoBuyItems.DelaySentry and gold >= 100 then
 		AutoBuyItems.DelaySentry = GameRules.GetGameTime() + AutoBuyItems.BuyDelay
 		AutoBuyItems.Sentry()
 	end
-	if Menu.IsEnabled(AutoBuyItems.AutoBuyDusts) and itemCount.DustCount < Menu.GetValue(AutoBuyItems.SliderForDust) and GameRules.GetGameTime() > 150 and GameRules.GetGameTime() >= AutoBuyItems.DelayDust and gold >= 180 then
+	if Menu.IsEnabled(AutoBuyItems.AutoBuyDusts) and itemCount.DustCount < Menu.GetValue(AutoBuyItems.SliderForDust) and GameRules.GetGameTime() > 210 and GameRules.GetGameTime() >= AutoBuyItems.DelayDust and gold >= 180 then
 		AutoBuyItems.DelayDust = GameRules.GetGameTime() + AutoBuyItems.BuyDelay
 		AutoBuyItems.Dust()
 	end
